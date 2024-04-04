@@ -1,5 +1,5 @@
 # Color Picker Text Button
-*Forked from [andrew-wilkes/godot-color-picker-text-button(https://github.com/andrew-wilkes/godot-color-picker-text-button)]*
+*Forked from [andrew-wilkes/godot-color-picker-text-button](https://github.com/andrew-wilkes/godot-color-picker-text-button)*
 Plugin for a custom node similar to the ColorPickerButton node but with a text label.
 This plugin is for Godot 4, for a Godot 3 version check out [this](https://github.com/andrew-wilkes/godot-color-picker-text-button).
 The Godot 3 version is missing font size, so keep that in mind.
