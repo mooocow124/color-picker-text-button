@@ -8,7 +8,7 @@ signal color_changed(color)
 @export var style: StyleBoxFlat: set = set_styles
 @export var mouseover_darkening_factor = 0.1 # (float, 0.1, 0.8)
 @export var custom_font: FontFile: set = set_font
-@export var color: Color = Color.WHITE: set = set_colors_in_tool
+@export var color: Color = Color.WHITE: set = set_colors
 @export var light_text_color: Color = Color.WHITE: set = update_light_text_color
 @export var dark_text_color: Color = Color.BLACK: set = update_dark_text_color
 @export var text_color_flip_threshold = 0.5 # (float, 0.2, 0.8)
@@ -156,6 +156,15 @@ func update_dark_text_color(c):
 func set_colors(c):
 	if not Engine.is_editor_hint():
 		emit_signal("color_changed", c)
+	self_modulate = c
+	color = c
+	var grey_value = (c.r + c.g + c.b) / 3
+	if grey_value > text_color_flip_threshold:
+		label.set("theme_override_colors/font_color", dark_text_color)
+	else:
+		label.set("theme_override_colors/font_color", light_text_color)
+
+func set_colors_notrigger(c):
 	self_modulate = c
 	color = c
 	var grey_value = (c.r + c.g + c.b) / 3
